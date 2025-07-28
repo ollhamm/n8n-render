@@ -1,9 +1,10 @@
 services:
   - type: web
     name: n8n
-    env: docker
     plan: free
-    dockerfilePath: ./Dockerfile
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
@@ -11,3 +12,7 @@ services:
         value: "admin"
       - key: N8N_BASIC_AUTH_PASSWORD
         value: "passwordku"
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "10000"
